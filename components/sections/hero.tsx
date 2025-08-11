@@ -28,7 +28,7 @@ export default function Hero({ locale = "pt" }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 sm:pt-28 md:pt-32 lg:pt-20"
       style={{
         background: "radial-gradient(ellipse at center, rgba(0, 255, 255, 0.1) 0%, transparent 70%), #0a0a0a",
       }}
