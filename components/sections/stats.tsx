@@ -15,7 +15,7 @@ export default function Stats({ locale = "pt" }: StatsProps) {
 
   const stats = [
     { number: 50, label: t.stats.projects, suffix: "+" },
-    { number: 3, label: t.stats.experience, suffix: "+" },
+    { number: 15, label: t.stats.experience, suffix: "+" },
     { number: 20, label: t.stats.clients, suffix: "+" },
     { number: 99, label: t.stats.success, suffix: "%" },
   ]
