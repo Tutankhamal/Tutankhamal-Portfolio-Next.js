@@ -71,20 +71,20 @@ export const translations = {
       code: "Código",
       projects: {
         chuva: {
-          title: "CHUVA Games",
+          title: "CHUVA Games Studio",
           description: "Estúdio brasileiro de jogos neurodivergente com design moderno e interativo.",
         },
         spocky: {
-          title: "Spocky Games",
+          title: "Spocky Games Website",
           description: "Plataforma de jogos retrô com design nostálgico e experiência imersiva.",
         },
         space: {
-          title: "Space Explorer",
-          description: "Aplicação interativa de exploração espacial com visualizações 3D.",
+          title: "Universe Dynamic Background",
+          description: "Background interativo de exploração espacial com visualizações 2D.",
         },
         cyber: {
-          title: "Cyber Maze",
-          description: "Jogo de labirinto cyberpunk com elementos interativos e animações fluidas.",
+          title: "Pac-Man Dynaic Background",
+          description: "Background em homenagem ao jogo Pac-Man com elementos interativos e animações fluidas.",
         },
       },
     },
@@ -194,20 +194,20 @@ export const translations = {
       code: "Code",
       projects: {
         chuva: {
-          title: "CHUVA Games",
+          title: "CHUVA Games Studio",
           description: "Brazilian neurodivergent game studio with modern and interactive design.",
         },
         spocky: {
-          title: "Spocky Games",
+          title: "Spocky Games Website",
           description: "Retro gaming platform with nostalgic design and immersive experience.",
         },
         space: {
-          title: "Space Explorer",
+          title: "Universe Dynamic Background",
           description: "Interactive space exploration application with 3D visualizations.",
         },
         cyber: {
-          title: "Cyber Maze",
-          description: "Cyberpunk maze game with interactive elements and fluid animations.",
+          title: "Pac-Man Dynamic Background",
+          description: "Pac-Man inspired background with interactive elements and fluid animations.",
         },
       },
     },
