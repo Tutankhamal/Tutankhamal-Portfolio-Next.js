@@ -6,9 +6,9 @@ export const translations = {
   pt: {
     // Navigation
     nav: {
-      home: "Home",
-      skills: "Skills",
-      portfolio: "Portfolio",
+      home: "Início",
+      skills: "Habilidades",
+      portfolio: "Portfólio",
       contact: "Contato",
     },
     // Hero Section
@@ -26,23 +26,23 @@ export const translations = {
       title: "HABILIDADES",
       items: {
         frontend: {
-          title: "Frontend Development",
+          title: "Desenvolvimento Frontend",
           description: "React, Next.js, TypeScript, Tailwind CSS",
         },
         backend: {
-          title: "Backend Development",
+          title: "Desenvolvimento Backend",
           description: "Node.js, Python, APIs RESTful",
         },
         database: {
-          title: "Database",
+          title: "Banco de Dados",
           description: "PostgreSQL, MongoDB, Redis",
         },
         web: {
-          title: "Web Technologies",
+          title: "Tecnologias Web",
           description: "HTML5, CSS3, JavaScript ES6+",
         },
         mobile: {
-          title: "Mobile Development",
+          title: "Desenvolvimento Mobile",
           description: "React Native, Flutter",
         },
         design: {
