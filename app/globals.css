@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tw-animate-css";
-
 :root {
   /* Cyberpunk Color Palette */
   --primary-cyan: #00ffff;
