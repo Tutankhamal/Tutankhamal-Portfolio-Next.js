@@ -4,7 +4,7 @@ Este é um projeto de portfólio pessoal desenvolvido com Next.js, TypeScript e 
 
 ---
 
-### 🚀 [PReviwew](https://tutankhamal.com)
+### 🚀 [Preview](https://tutankhamal.com)
 
 ---
 
