@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-const nodemailer = require("nodemailer")
+import nodemailer from "nodemailer"
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
 
     // Create transporter (configure with your email service)
     const port = Number.parseInt(process.env.SMTP_PORT || "587")
-    const transporter = nodemailer.createTransporter({
+        const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port,
       secure: port === 465,
