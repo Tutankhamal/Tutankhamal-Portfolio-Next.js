@@ -11,10 +11,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Create transporter (configure with your email service)
+    const port = Number.parseInt(process.env.SMTP_PORT || "587")
     const transporter = nodemailer.createTransporter({
       host: process.env.SMTP_HOST,
-      port: Number.parseInt(process.env.SMTP_PORT || "587"),
-      secure: false,
+      port,
+      secure: port === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -23,8 +24,8 @@ export async function POST(request: NextRequest) {
 
     // Email content
     const mailOptions = {
-      from: process.env.SMTP_FROM || "noreply@tutankhamal.com",
-      to: "contato@tutankhamal.com",
+      from: process.env.SMTP_FROM || "tutankhamal@zohomail.com",
+      to: "tutankhamal@zohomail.com",
       subject: `Contato do Site: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
