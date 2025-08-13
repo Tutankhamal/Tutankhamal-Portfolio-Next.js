@@ -79,11 +79,17 @@ export default function Contact({ locale = "pt" }: ContactProps) {
     setIsSubmitting(true)
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-      // Copy Discord to clipboard
-      await navigator.clipboard.writeText("@Tutankhamal")
+      if (!response.ok) {
+        throw new Error("A resposta da rede não foi boa")
+      }
 
       toast({
         title: t.contact.toast.success,
@@ -93,6 +99,7 @@ export default function Contact({ locale = "pt" }: ContactProps) {
       // Reset form
       setFormData({ name: "", email: "", subject: "", message: "" })
     } catch (error) {
+      console.error("Falha ao enviar o formulário:", error)
       toast({
         title: t.contact.toast.error,
         description: t.contact.toast.errorDescription,
