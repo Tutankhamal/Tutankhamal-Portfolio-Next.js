@@ -28,19 +28,16 @@ export async function POST(request: NextRequest) {
       to: "tutankhamal@zohomail.com",
       subject: `Contato do Site: ${subject}`,
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #00ffff;">Nova mensagem do site</h2>
-          <div style="background: #111; padding: 20px; border-radius: 8px; border: 1px solid #00ffff;">
-            <p><strong>Nome:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Assunto:</strong> ${subject}</p>
-            <div style="margin-top: 20px;">
-              <strong>Mensagem:</strong>
-              <div style="background: #0a0a0a; padding: 15px; border-radius: 4px; margin-top: 10px; border-left: 3px solid #00ffff;">
-                ${message.replace(/\n/g, "<br>")}
-              </div>
-            </div>
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; background: #0a0a0a; color: #f0f0f0; border: 1px solid #00ffff; border-radius: 8px; overflow: hidden;">
+          <h2 style="background: #111; color: #00ffff; margin: 0; padding: 20px; text-align: center;">Nova Mensagem do Site</h2>
+          <div style="padding: 20px;">
+            <p style="margin: 10px 0;"><strong>Nome:</strong> ${name}</p>
+            <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #00ffff; text-decoration: none;">${email}</a></p>
+            <p style="margin: 10px 0;"><strong>Assunto:</strong> ${subject}</p>
+            <p style="margin: 10px 0;"><strong>Mensagem:</strong></p>
+            <pre style="background: #000; padding: 15px; border-radius: 4px; border: 1px solid #333; color: #f0f0f0; white-space: pre-wrap; word-wrap: break-word; font-family: monospace;">${message}</pre>
           </div>
+          <p style="background: #111; text-align: center; color: #888; font-size: 12px; margin: 0; padding: 15px;">Este é um e-mail automático enviado pelo formulário de contato.</p>
         </div>
       `,
       text: `
