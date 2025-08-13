@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import * as nodemailer from "nodemailer"
+const nodemailer = require("nodemailer")
 
 export async function POST(request: NextRequest) {
   try {
