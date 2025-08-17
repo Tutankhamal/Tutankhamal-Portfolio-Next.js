@@ -83,7 +83,7 @@ export const translations = {
           description: "Background interativo de exploração espacial com visualizações 2D.",
         },
         cyber: {
-          title: "Pac-Man Dynaic Background",
+          title: "Pac-Man Dynamic Background",
           description: "Background em homenagem ao jogo Pac-Man com elementos interativos e animações fluidas.",
         },
       },
