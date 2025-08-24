@@ -59,7 +59,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       id: 5,
       title: t.portfolio.projects.egypt.title,
       description: t.portfolio.projects.egypt.description,
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio5-nGcJZppspJaeN3hRUAcA83jwrT4mkC.webp",
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio5.webp",
       technologies: ["TypeScript", "React", "Canvas API", "LED Matrix Animation"],
       category: "2d",
       liveUrl: "https://pixel-animated-background.vercel.app/",
