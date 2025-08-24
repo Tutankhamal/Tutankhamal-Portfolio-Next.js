@@ -59,7 +59,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       id: 5,
       title: t.portfolio.projects.egypt.title,
       description: t.portfolio.projects.egypt.description,
-      image: "/portfolio5.webp",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio5-nGcJZppspJaeN3hRUAcA83jwrT4mkC.webp",
       technologies: ["TypeScript", "React", "Canvas API", "LED Matrix Animation"],
       category: "2d",
       liveUrl: "https://pixel-animated-background.vercel.app/",
@@ -127,6 +127,8 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority={index < 2}
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 {/* Overlay - Completely hidden by default, only visible on group hover */}
