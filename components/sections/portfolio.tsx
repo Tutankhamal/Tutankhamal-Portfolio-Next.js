@@ -55,6 +55,16 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       liveUrl: "https://pac-man-dynamic-background.vercel.app/",
       githubUrl: "https://github.com/Tutankhamal/Pac-Man_Dynamic_Background",
     },
+    {
+      id: 5,
+      title: t.portfolio.projects.egypt.title,
+      description: t.portfolio.projects.egypt.description,
+      image: "/portfolio5.webp",
+      technologies: ["TypeScript", "React", "Canvas API", "LED Matrix Animation"],
+      category: "2d",
+      liveUrl: "https://pixel-animated-background.vercel.app/",
+      githubUrl: "https://github.com/Tutankhamal/Pixel-Animated-Background",
+    },
   ]
 
   const categories = [

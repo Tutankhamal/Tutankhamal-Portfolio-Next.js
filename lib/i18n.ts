@@ -86,6 +86,10 @@ export const translations = {
           title: "Pac-Man Dynamic Background",
           description: "Background em homenagem ao jogo Pac-Man com elementos interativos e animações fluidas.",
         },
+        egypt: {
+          title: "Night on Egypt",
+          description: "Background dinâmico inspirado no antigo Egito com efeitos de luz LED e animações pixel art.",
+        },
       },
     },
     // Contact Section
@@ -208,6 +212,10 @@ export const translations = {
         cyber: {
           title: "Pac-Man Dynamic Background",
           description: "Pac-Man inspired background with interactive elements and fluid animations.",
+        },
+        egypt: {
+          title: "Night on Egypt",
+          description: "Dynamic background inspired by ancient Egypt with LED light effects and pixel art animations.",
         },
       },
     },
