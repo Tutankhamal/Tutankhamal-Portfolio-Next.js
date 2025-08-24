@@ -64,7 +64,7 @@ export const translations = {
       categories: {
         all: "Todos",
         web: "Web Apps",
-        "3d": "3D/WebGL",
+        "2d": "2D/WebGL",
         game: "Games",
       },
       viewProject: "Ver Projeto",
@@ -187,7 +187,7 @@ export const translations = {
       categories: {
         all: "All",
         web: "Web Apps",
-        "3d": "3D/WebGL",
+        "2d": "2D/WebGL",
         game: "Games",
       },
       viewProject: "View Project",
@@ -203,7 +203,7 @@ export const translations = {
         },
         space: {
           title: "Universe Dynamic Background",
-          description: "Interactive space exploration application with 3D visualizations.",
+          description: "Interactive space exploration application with 2D visualizations.",
         },
         cyber: {
           title: "Pac-Man Dynamic Background",

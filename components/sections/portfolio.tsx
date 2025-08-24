@@ -41,7 +41,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       description: t.portfolio.projects.space.description,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio4-dzkMjgdanynJ9ZIS7s1fMgFoggNJcr.webp",
       technologies: ["Three.js", "React", "WebGL", "GSAP"],
-      category: "3d",
+      category: "2d",
       liveUrl: "https://the-universe-bg.vercel.app/",
       githubUrl: "https://github.com/Tutankhamal/the_universe_bg",
     },
@@ -60,7 +60,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
   const categories = [
     { id: "all", label: t.portfolio.categories.all },
     { id: "web", label: t.portfolio.categories.web },
-    { id: "3d", label: t.portfolio.categories["3d"] },
+    { id: "2d", label: t.portfolio.categories["2d"] },
     { id: "game", label: t.portfolio.categories.game },
   ]
 
