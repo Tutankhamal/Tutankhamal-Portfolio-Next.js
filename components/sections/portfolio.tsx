@@ -65,6 +65,16 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       liveUrl: "https://pixel-animated-background.vercel.app/",
       githubUrl: "https://github.com/Tutankhamal/Pixel-Animated-Background",
     },
+    {
+      id: 6,
+      title: t.portfolio.projects.crt.title,
+      description: t.portfolio.projects.crt.description,
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio6.webp",
+      technologies: ["React", "TypeScript", "Canvas API", "Radix UI", "CSS Animations"],
+      category: "2d",
+      liveUrl: "https://crt-tv-interference-background.vercel.app/",
+      githubUrl: "https://github.com/Tutankhamal/CRT-TV-Interference-Background",
+    },
   ]
 
   const categories = [

@@ -90,6 +90,10 @@ export const translations = {
           title: "Night on Egypt",
           description: "Background dinâmico inspirado no antigo Egito com efeitos de luz LED e animações pixel art.",
         },
+        crt: {
+          title: "CRT TV Interference",
+          description: "Efeito de interferência de TV CRT retrô com animações dinâmicas e interativas usando Canvas.",
+        },
       },
     },
     // Contact Section
@@ -216,6 +220,10 @@ export const translations = {
         egypt: {
           title: "Night on Egypt",
           description: "Dynamic background inspired by ancient Egypt with LED light effects and pixel art animations.",
+        },
+        crt: {
+          title: "CRT TV Interference",
+          description: "Retro CRT TV interference effect with dynamic and interactive animations using Canvas.",
         },
       },
     },
