@@ -4,30 +4,59 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Tutankhamal Portfolio',
-  description: 'Created by Tutankhamal',
+  metadataBase: new URL('https://tutankhamal.vercel.app'),
+  title: 'Tutankhamal Dev - Full Stack Developer',
+  description: 'Desenvolvedor Web Full Stack especializado em React, Node.js, JavaScript. Criação de sites modernos e aplicações web inovadoras.',
   generator: 'Tutankhamal Dev',
+  keywords: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Full Stack', 'Web Developer', 'Portfolio'],
+  authors: [{ name: 'Tutankhamal Dev' }],
+  creator: 'Tutankhamal Dev',
+  publisher: 'Tutankhamal Dev',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: 'Tutankhamal Portfolio',
-    description: 'Creating innovative digital experiences with cutting-edge technologies',
-    url: 'https://tutankhamal.vercel.app',
-    siteName: 'Tutankhamal Portfolio',
-    images: [
-      {
-        url: 'https://qyucubbl29wl9pia.public.blob.vercel-storage.com/og-image.webp',
-        width: 600,
-        height: 240,
-        alt: 'Tutankhamal Portfolio',
-      },
-    ],
-    locale: 'en_US',
     type: 'website',
+    locale: 'pt_BR',
+    alternateLocale: 'en_US',
+    url: 'https://tutankhamal.vercel.app',
+    siteName: 'Tutankhamal Dev - Full Stack Developer',
+    title: 'Tutankhamal Dev - Desenvolvedor Web Full Stack',
+    description: 'Desenvolvedor Web Full Stack especializado em React, Node.js, JavaScript. Criação de sites modernos e aplicações web inovadoras.',
+    images: [{
+      url: '/og-image.webp',
+      width: 600,
+      height: 240,
+      alt: 'Tutankhamal Dev - Full Stack Developer Portfolio'
+    }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tutankhamal Portfolio',
-    description: 'Creating innovative digital experiences with cutting-edge technologies',
-    images: ['https://qyucubbl29wl9pia.public.blob.vercel-storage.com/og-image.webp'],
+    title: 'Tutankhamal Dev - Desenvolvedor Web Full Stack',
+    description: 'Desenvolvedor Web Full Stack especializado em React, Node.js, JavaScript. Criação de sites modernos e aplicações web inovadoras.',
+    images: ['/og-image.webp'],
+    creator: '@tutankhamal',
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+  verification: {
+    google: 'your-google-site-verification',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
