@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'Tutankhamal Dev - Desenvolvedor Web Full Stack',
     description: 'Desenvolvedor Web Full Stack especializado em React, Node.js, JavaScript. Criação de sites modernos e aplicações web inovadoras.',
     images: [{
-      url: '/og-image.webp',
+      url: 'https://i.imgur.com/jI9ww1C.png',
       width: 600,
       height: 240,
       alt: 'Tutankhamal Dev - Full Stack Developer Portfolio'
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tutankhamal Dev - Desenvolvedor Web Full Stack',
     description: 'Desenvolvedor Web Full Stack especializado em React, Node.js, JavaScript. Criação de sites modernos e aplicações web inovadoras.',
-    images: ['/og-image.webp'],
+    images: ['https://i.imgur.com/jI9ww1C.png'],
     creator: '@tutankhamal',
   },
   viewport: {
