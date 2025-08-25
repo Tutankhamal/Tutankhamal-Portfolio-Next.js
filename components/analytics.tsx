@@ -2,13 +2,11 @@
 
 import Script from 'next/script'
 
-const GA_MEASUREMENT_ID = 'G-12DDY9N6FS'
-
 export default function Analytics() {
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      <Script 
+        src="https://www.googletagmanager.com/gtag/js?id=G-12DDY9N6FS"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -16,7 +14,12 @@ export default function Analytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}');
+
+          gtag('config', 'G-12DDY9N6FS', {
+            page_path: window.location.pathname,
+            transport_url: 'https://www.google-analytics.com/g/collect',
+            first_party_collection: true
+          });
         `}
       </Script>
     </>

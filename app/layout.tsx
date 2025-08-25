@@ -69,7 +69,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Analytics />
         <style>{`
 html {
   font-family: ${GeistSans.style.fontFamily};
@@ -78,7 +77,10 @@ html {
 }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body>
+        <Analytics />
+        {children}
+      </body>
     </html>
   )
 }
