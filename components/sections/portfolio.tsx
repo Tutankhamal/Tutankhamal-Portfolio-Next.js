@@ -75,6 +75,16 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       liveUrl: "https://crt-tv-interference-background.vercel.app/",
       githubUrl: "https://github.com/Tutankhamal/CRT-TV-Interference-Background",
     },
+    {
+      id: 7,
+      title: t.portfolio.projects.anacruse.title,
+      description: t.portfolio.projects.anacruse.description,
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio7.webp",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Vanilla JS", "Cyberpunk/Retrowave Style"],
+      category: "web",
+      liveUrl: "https://anacruse-com.vercel.app/",
+      githubUrl: "https://github.com/Tutankhamal/anacruse.com",
+    },
   ]
 
   const categories = [

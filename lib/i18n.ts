@@ -94,6 +94,10 @@ export const translations = {
           title: "CRT TV Interference",
           description: "Efeito de interferência de TV CRT retrô com animações dinâmicas e interativas usando Canvas.",
         },
+        anacruse: {
+          title: "Website da Banda Anacruse", 
+          description: "Site oficial de uma banda de rock com estética cyberpunk, suporte multilíngue e design responsivo moderno.",
+        },
       },
     },
     // Contact Section
@@ -224,6 +228,10 @@ export const translations = {
         crt: {
           title: "CRT TV Interference",
           description: "Retro CRT TV interference effect with dynamic and interactive animations using Canvas.",
+        },
+        anacruse: {
+          title: "Anacruse Band Website",
+          description: "Official website for a rock band with cyberpunk aesthetics, multilingual support, and a modern responsive design.",
         },
       },
     },
