@@ -78,7 +78,7 @@ export default function Skills({ locale = "pt" }: SkillsProps) {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">{t.skills.title}</h2>
+          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glitch-matrix glitch-scanlines" data-text={t.skills.title}>{t.skills.title}</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto"></div>
         </div>
 

@@ -108,7 +108,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">
+          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glitch-pixel glitch-scanlines" data-text={t.portfolio.title}>
             {t.portfolio.title}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto mb-8"></div>

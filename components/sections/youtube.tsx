@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Play, Users, Eye, Video, MessageCircle, ThumbsUp, Clock } from "lucide-react"
+import { Play, Users, Eye, Video, MessageCircle, ThumbsUp, Clock, BarChart3 } from "lucide-react"
 import { type Locale, getTranslations } from "@/lib/i18n"
 
 interface YouTubeProps {
@@ -108,7 +108,7 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="font-orbitron text-4xl lg:text-6xl font-bold text-white mb-4 glow-text">
+          <h1 className="font-orbitron text-4xl lg:text-6xl font-bold text-white mb-4 glitch-matrix glitch-scanlines" data-text={t.youtube.title}>
             {t.youtube.title}
           </h1>
           <p className="text-xl text-[#cccccc] mb-2">{t.youtube.subtitle}</p>
@@ -123,7 +123,7 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
                 <Play className="text-white text-2xl" fill="white" />
               </div>
               <div className="text-left">
-                <h2 className="font-orbitron text-xl font-bold text-white mb-1">TUTANKHAMAL</h2>
+                <h2 className="font-orbitron text-xl font-bold text-white mb-1 glitch-subtle" data-text="TUTANKHAMAL">TUTANKHAMAL</h2>
                 <p className="text-[#cccccc]">{formatNumber(stats?.subscribers || 0)} {t.youtube.stats.subscribers}</p>
               </div>
             </div>
@@ -153,9 +153,12 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
         {/* Channel Statistics */}
         {stats && (
           <div className="mb-16">
-            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
-              {locale === "pt" ? "Estatísticas do Canal" : "Channel Statistics"}
-            </h2>
+            <div className="flex items-center justify-center mb-8">
+              <BarChart3 className="text-[var(--primary-cyan)] text-3xl lg:text-4xl mr-3" />
+              <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white glitch-pixel-inline" data-text={locale === "pt" ? "Estatísticas do Canal" : "Channel Statistics"}>
+                {locale === "pt" ? "Estatísticas do Canal" : "Channel Statistics"}
+              </h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="cyber-card rounded-xl p-6 text-center hover:shadow-[var(--glow-cyan)] transition-all duration-300">
                  <div className="flex items-center justify-center mb-4">

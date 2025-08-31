@@ -5,6 +5,7 @@ import "../globals.css"
 import Navbar from "@/components/layout/navbar"
 import LoadingScreen from "@/components/ui/loading-screen"
 import ParticleSystem from "@/components/ui/particle-system"
+import ScrollToTop from "@/components/ui/scroll-to-top"
 import { Toaster } from "@/components/ui/toaster"
 import { locales, type Locale } from "@/lib/i18n"
 
@@ -69,6 +70,7 @@ export default async function LocaleLayout({
       <ParticleSystem />
       <Navbar locale={locale} />
       {children}
+      <ScrollToTop />
       <Toaster />
     </div>
   )

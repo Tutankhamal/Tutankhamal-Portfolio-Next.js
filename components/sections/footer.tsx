@@ -58,8 +58,8 @@ export default function Footer({ locale = "pt" }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-8">
           {/* Logo */}
           <div className="flex items-center justify-center md:justify-start space-x-1">
-            <span className="font-orbitron text-xl font-bold text-white">TUTANKHAMAL</span>
-            <span className="font-orbitron text-xl font-bold text-gradient">DEV</span>
+            <span className="font-orbitron text-xl font-bold text-white glitch-matrix" data-text="TUTANKHAMAL">TUTANKHAMAL</span>
+              <span className="font-orbitron text-xl font-bold text-gradient glitch-pixel" data-text="DEV">DEV</span>
           </div>
 
           {/* Navigation Links */}

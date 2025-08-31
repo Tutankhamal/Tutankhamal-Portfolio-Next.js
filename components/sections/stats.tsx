@@ -72,7 +72,7 @@ export default function Stats({ locale = "pt" }: StatsProps) {
               data-index={index}
               className="stat-item text-center p-6 cyber-card rounded-xl hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300"
             >
-              <div className="font-orbitron text-3xl lg:text-4xl font-bold text-[#00ffff] mb-2 glow-text">
+              <div className="font-orbitron text-3xl lg:text-4xl font-bold text-[#00ffff] mb-2">
                 {animatedValues[index]}
                 {stat.suffix}
               </div>

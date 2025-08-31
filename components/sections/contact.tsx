@@ -136,7 +136,7 @@ export default function Contact({ locale = "pt" }: ContactProps) {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">{t.contact.title}</h2>
+          <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glitch-matrix glitch-scanlines" data-text={t.contact.title}>{t.contact.title}</h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto"></div>
         </div>
 
@@ -144,7 +144,7 @@ export default function Contact({ locale = "pt" }: ContactProps) {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-orbitron text-2xl font-bold text-white mb-6">{t.contact.subtitle}</h3>
+              <h3 className="font-orbitron text-2xl font-bold text-white mb-6 glitch-pixel" data-text={t.contact.subtitle}>{t.contact.subtitle}</h3>
               <p className="text-[#cccccc] leading-relaxed mb-8">{t.contact.description}</p>
             </div>
 

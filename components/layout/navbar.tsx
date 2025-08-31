@@ -137,8 +137,8 @@ export default function Navbar({ locale = "pt" }: NavbarProps) {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href={`/${locale}`} className="flex items-center space-x-1 z-50 relative">
-              <span className="font-orbitron text-xl font-bold text-white">TUTANKHAMAL</span>
-              <span className="font-orbitron text-xl font-bold text-gradient">DEV</span>
+              <span className="font-orbitron text-xl font-bold text-white glitch-matrix glitch-scanlines" data-text="TUTANKHAMAL">TUTANKHAMAL</span>
+              <span className="font-orbitron text-xl font-bold text-gradient glitch-matrix glitch-scanlines" data-text="DEV">DEV</span>
             </Link>
 
             {/* Desktop Navigation */}
