@@ -1,18 +1,21 @@
 "use client"
 
 import { useState, useCallback } from "react"
+import type { ToastActionElement } from "@/components/ui/toast"
 
 interface Toast {
   id: string
   title: string
   description?: string
   variant?: "default" | "destructive"
+  action?: ToastActionElement
 }
 
 interface ToastOptions {
   title: string
   description?: string
   variant?: "default" | "destructive"
+  action?: ToastActionElement
 }
 
 let toastCount = 0

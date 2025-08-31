@@ -111,7 +111,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
           <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">
             {t.portfolio.title}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto mb-8"></div>
 
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-4">

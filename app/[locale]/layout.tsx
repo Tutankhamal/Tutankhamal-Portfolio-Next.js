@@ -45,10 +45,16 @@ export async function generateMetadata({
   return {
     title: titles[locale],
     description: descriptions[locale],
+    icons: {
+      icon: '/favicon.ico',
+    },
+    other: {
+      'font-awesome': 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
+    },
   }
 }
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
@@ -58,24 +64,12 @@ export default async function RootLayout({
   const { locale } = await params
 
   return (
-    <html lang={locale} className={`${orbitron.variable} ${rajdhani.variable}`}>
-      <head>
-        {/* Font Awesome CDN */}
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
-      <body className="bg-[#0a0a0a] text-white font-rajdhani overflow-x-hidden">
-        <LoadingScreen locale={locale} />
-        <ParticleSystem />
-        <Navbar locale={locale} />
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <div className={`${orbitron.variable} ${rajdhani.variable} bg-[#0a0a0a] text-white font-rajdhani overflow-x-hidden min-h-screen`}>
+      <LoadingScreen />
+      <ParticleSystem />
+      <Navbar locale={locale} />
+      {children}
+      <Toaster />
+    </div>
   )
 }

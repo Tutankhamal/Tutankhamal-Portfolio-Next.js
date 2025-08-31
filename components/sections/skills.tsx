@@ -79,7 +79,7 @@ export default function Skills({ locale = "pt" }: SkillsProps) {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">{t.skills.title}</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto"></div>
         </div>
 
         {/* Skills Grid */}
@@ -107,7 +107,7 @@ export default function Skills({ locale = "pt" }: SkillsProps) {
               {/* Progress Bar */}
               <div className="w-full bg-white/10 rounded-full h-1 overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#00ffff] to-[#ff00ff] transition-all duration-1000 ease-out"
+                  className="h-full bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] transition-all duration-1000 ease-out"
                   style={{
                     width: visibleItems.includes(index) ? `${skill.progress}%` : "0%",
                   }}

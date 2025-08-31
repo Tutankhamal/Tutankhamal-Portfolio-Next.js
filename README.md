@@ -121,9 +121,15 @@ SMTP_PORT=seu-smtp-port
 SMTP_USER=seu-email@seudominio.com
 SMTP_PASS=sua-senha-de-aplicativo # IMPORTANTE: Use senha de aplicativo se tiver 2FA
 SMTP_FROM=seu-email@seudominio.com
+
+# YouTube Data API V3 (para a página do YouTube)
+YOUTUBE_API_KEY=sua-chave-da-youtube-data-api-v3
 ```
 
-**Nota:** Se você usa autenticação de dois fatores (2FA) em seu provedor de e-mail, você **precisa** gerar uma **Senha Específica de Aplicativo** e usá-la como `SMTP_PASS`.
+**Notas importantes:**
+- Se você usa autenticação de dois fatores (2FA) em seu provedor de e-mail, você **precisa** gerar uma **Senha Específica de Aplicativo** e usá-la como `SMTP_PASS`.
+- Para obter a `YOUTUBE_API_KEY`, acesse o [Google Cloud Console](https://console.cloud.google.com/), crie um projeto, ative a YouTube Data API v3 e gere uma chave de API.
+- A página do YouTube exibe estatísticas do canal ID: `UCLubOgcZY59EYBTKXNTPgbA`
 
 ### 5. Rodar o Servidor de Desenvolvimento
 

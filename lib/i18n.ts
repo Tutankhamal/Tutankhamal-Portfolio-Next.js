@@ -10,6 +10,7 @@ export const translations = {
       skills: "Habilidades",
       portfolio: "Portfólio",
       contact: "Contato",
+      youtube: "YouTube",
     },
     // Hero Section
     hero: {
@@ -131,6 +132,26 @@ export const translations = {
         errorDescription: "Ocorreu um erro ao processar sua solicitação. Tente novamente.",
       },
     },
+    // YouTube Section
+    youtube: {
+      title: "MEU CANAL NO YOUTUBE",
+      subtitle: "Conteúdo sobre desenvolvimento e tecnologia",
+      description: "Acompanhe tutoriais, dicas e projetos no meu canal",
+      stats: {
+        subscribers: "Inscritos",
+        views: "Visualizações",
+        videos: "Vídeos",
+        comments: "Comentários",
+        likes: "Curtidas",
+        watchTime: "Horas Assistidas",
+      },
+      buttons: {
+        subscribe: "INSCREVER-SE",
+        visitChannel: "VISITAR CANAL",
+      },
+      loading: "Carregando estatísticas...",
+      error: "Erro ao carregar dados do canal",
+    },
     // Footer
     footer: {
       copyright: "© 2009 - 2025 Tutankhamal Dev. Todos os direitos reservados.",
@@ -145,6 +166,7 @@ export const translations = {
       skills: "Skills",
       portfolio: "Portfolio",
       contact: "Contact",
+      youtube: "YouTube",
     },
     // Hero Section
     hero: {
@@ -238,9 +260,8 @@ export const translations = {
     // Contact Section
     contact: {
       title: "CONTACT",
-      subtitle: "Let's Talk",
-      description:
-        "I'm always open to discussing new projects, creative opportunities, or partnerships. Get in touch and let's create something amazing together!",
+      subtitle: "Let's work together",
+      description: "Ready to turn your idea into reality? Get in touch!",
       methods: {
         discord: "Discord",
         email: "Email",
@@ -257,7 +278,9 @@ export const translations = {
         message: "Message",
         messagePlaceholder: "Your message...",
         send: "SEND MESSAGE",
-        sending: "SENDING...",
+        sending: "Sending...",
+        success: "Message sent successfully!",
+        error: "Error sending message. Please try again.",
       },
       toast: {
         success: "Copied!",
@@ -265,6 +288,26 @@ export const translations = {
         error: "Error",
         errorDescription: "An error occurred while processing your request. Please try again.",
       },
+    },
+    // YouTube Section
+    youtube: {
+      title: "MY YOUTUBE CHANNEL",
+      subtitle: "Development and technology content",
+      description: "Follow tutorials, tips and projects on my channel",
+      stats: {
+        subscribers: "Subscribers",
+        views: "Views",
+        videos: "Videos",
+        comments: "Comments",
+        likes: "Likes",
+        watchTime: "Watch Time Hours",
+      },
+      buttons: {
+        subscribe: "SUBSCRIBE",
+        visitChannel: "VISIT CHANNEL",
+      },
+      loading: "Loading statistics...",
+      error: "Error loading channel data",
     },
     // Footer
     footer: {

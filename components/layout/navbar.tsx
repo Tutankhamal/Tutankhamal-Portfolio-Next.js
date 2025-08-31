@@ -12,6 +12,7 @@ interface NavbarProps {
 export default function Navbar({ locale = "pt" }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [currentPath, setCurrentPath] = useState('')
   const t = getTranslations(locale)
 
   useEffect(() => {
@@ -35,17 +36,77 @@ export default function Navbar({ locale = "pt" }: NavbarProps) {
     }
   }, [isMobileMenuOpen])
 
+  useEffect(() => {
+    const updateCurrentPath = () => {
+      setCurrentPath(window.location.pathname + window.location.hash)
+    }
+
+    updateCurrentPath()
+    window.addEventListener('popstate', updateCurrentPath)
+    window.addEventListener('hashchange', updateCurrentPath)
+
+    return () => {
+      window.removeEventListener('popstate', updateCurrentPath)
+      window.removeEventListener('hashchange', updateCurrentPath)
+    }
+  }, [])
+
   const navLinks = [
-    { href: "#home", label: t.nav.home },
-    { href: "#skills", label: t.nav.skills },
-    { href: "#portfolio", label: t.nav.portfolio },
-    { href: "#contact", label: t.nav.contact },
+    { href: "#home", label: t.nav.home, isExternal: false },
+    { href: "#skills", label: t.nav.skills, isExternal: false },
+    { href: "#portfolio", label: t.nav.portfolio, isExternal: false },
+    { href: "#contact", label: t.nav.contact, isExternal: false },
+    { href: `/${locale}/youtube`, label: t.nav.youtube, isExternal: true },
   ]
 
-  const handleNavClick = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+  const getCurrentPage = () => {
+    if (typeof window === 'undefined') return '#home'
+    
+    if (currentPath.includes('/youtube')) {
+      return '/youtube'
+    }
+    
+    const hash = currentPath.split('#')[1]
+    if (hash) {
+      return `#${hash}`
+    }
+    
+    return '#home'
+  }
+
+  const isActiveLink = (href: string) => {
+    if (typeof window === 'undefined') return href === '#home'
+    const currentPage = getCurrentPage()
+    
+    // Special handling for YouTube link
+    if (href.includes('/youtube') && currentPage === '/youtube') {
+      return true
+    }
+    
+    return currentPage === href
+  }
+
+  const handleNavClick = (href: string, isExternal: boolean) => {
+    if (isExternal) {
+      window.location.href = href
+    } else {
+      // Check if we're on the home page
+      const currentPath = window.location.pathname
+      const isOnHomePage = currentPath === `/${locale}` || currentPath === `/${locale}/`
+      
+      if (isOnHomePage) {
+        // If on home page, scroll to section
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+          // Manually update the URL hash and current path state
+          window.history.replaceState(null, '', href)
+          setCurrentPath(window.location.pathname + href)
+        }
+      } else {
+        // If on other pages, navigate to home page with hash
+        window.location.href = `/${locale}${href}`
+      }
     }
     setIsMobileMenuOpen(false)
   }
@@ -82,16 +143,27 @@ export default function Navbar({ locale = "pt" }: NavbarProps) {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="relative text-[#cccccc] hover:text-[#00ffff] transition-colors duration-300 font-medium tracking-wide group cursor-pointer bg-transparent border-none"
-                >
-                  {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = isActiveLink(link.href)
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href, link.isExternal)}
+                    className={`relative transition-colors duration-300 font-medium tracking-wide group cursor-pointer bg-transparent border-none ${
+                      isActive 
+                        ? 'text-[#00ffff]' 
+                        : 'text-[#cccccc] hover:text-[#00ffff]'
+                    }`}
+                  >
+                    {link.label}
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] transition-all duration-300 ${
+                      isActive 
+                        ? 'w-full' 
+                        : 'w-0 group-hover:w-full'
+                    }`}></span>
+                  </button>
+                )
+              })}
 
               {/* Language Toggle */}
               {locale && (
@@ -120,15 +192,22 @@ export default function Navbar({ locale = "pt" }: NavbarProps) {
         <div className="md:hidden fixed inset-0 z-[55] bg-[#0a0a0a]/98 backdrop-blur-lg">
           <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-16">
             <div className="flex flex-col items-center space-y-8 w-full max-w-sm">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className="w-full text-center text-2xl font-medium text-[#cccccc] hover:text-[#00ffff] transition-colors duration-300 cursor-pointer bg-transparent border-none py-3"
-                >
-                  {link.label}
-                </button>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = isActiveLink(link.href)
+                return (
+                  <button
+                    key={link.href}
+                    onClick={() => handleNavClick(link.href, link.isExternal)}
+                    className={`w-full text-center text-2xl font-medium transition-colors duration-300 cursor-pointer bg-transparent border-none py-3 ${
+                      isActive 
+                        ? 'text-[#00ffff]' 
+                        : 'text-[#cccccc] hover:text-[#00ffff]'
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                )
+              })}
 
               {/* Mobile Language Toggle */}
               {locale && (

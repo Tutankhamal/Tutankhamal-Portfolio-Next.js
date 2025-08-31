@@ -137,7 +137,7 @@ export default function Contact({ locale = "pt" }: ContactProps) {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-orbitron text-4xl lg:text-5xl font-bold text-white mb-6 glow-text">{t.contact.title}</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#ff00ff] mx-auto"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#00ffff] to-[#8b5cf6] mx-auto"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

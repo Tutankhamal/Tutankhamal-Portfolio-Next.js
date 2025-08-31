@@ -1,31 +1,48 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { type Locale, getTranslations } from "@/lib/i18n"
+import { useEffect, useState } from "react"
 
-interface LoadingScreenProps {
-  locale?: Locale
-}
-
-export default function LoadingScreen({ locale = "pt" }: LoadingScreenProps) {
-  const [isLoading, setIsLoading] = useState(true)
-  const t = getTranslations(locale)
+export default function LoadingScreen() {
+  const [isVisible, setIsVisible] = useState(true)
+  const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2000)
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer)
+          setTimeout(() => setIsVisible(false), 500)
+          return 100
+        }
+        return prev + 2
+      })
+    }, 50)
 
-    return () => clearTimeout(timer)
+    return () => clearInterval(timer)
   }, [])
 
-  if (!isLoading) return null
+  if (!isVisible) return null
 
   return (
-    <div className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-[10000] transition-opacity duration-500">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a0a0a]">
       <div className="text-center">
-        <div className="w-16 h-16 border-4 border-transparent border-t-[#00ffff] border-r-[#ff00ff] rounded-full animate-spin mx-auto mb-6"></div>
-        <div className="font-orbitron text-sm tracking-[3px] text-[#cccccc] animate-pulse">{t.loading}</div>
+        <div className="mb-8">
+          <div className="text-4xl font-orbitron font-bold text-cyan-400 mb-4">
+            TUTANKHAMAL
+          </div>
+          <div className="text-lg text-gray-400">Loading...</div>
+        </div>
+        
+        <div className="w-80 h-2 bg-gray-800 rounded-full overflow-hidden">
+          <div 
+            className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        
+        <div className="mt-4 text-cyan-400 font-mono">
+          {progress}%
+        </div>
       </div>
     </div>
   )
