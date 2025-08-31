@@ -305,3 +305,9 @@ body {
   border-color: #00ffff;
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
+
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}

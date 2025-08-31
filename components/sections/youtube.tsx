@@ -132,7 +132,8 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
                 href={channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cyber-button bg-[#ff0000] hover:bg-[#cc0000] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+                className="cyber-button bg-transparent border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 font-semibold tracking-wide"
+                style={{ boxShadow: "0 0 10px rgba(0, 255, 255, 0.3)" }}
               >
                 {t.youtube.buttons.subscribe}
               </a>
@@ -140,7 +141,8 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
                 href={channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cyber-button border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-6 py-2 rounded-lg font-medium transition-all duration-300"
+                className="cyber-button bg-transparent border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:-translate-y-1 font-semibold tracking-wide"
+                style={{ boxShadow: "0 0 10px rgba(0, 255, 255, 0.3)" }}
               >
                 {t.youtube.buttons.visitChannel}
               </a>
@@ -148,15 +150,58 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
           </div>
         </div>
 
+        {/* Channel Statistics */}
+        {stats && (
+          <div className="mb-16">
+            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
+              {locale === "pt" ? "Estatísticas do Canal" : "Channel Statistics"}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="cyber-card rounded-xl p-6 text-center hover:shadow-[var(--glow-cyan)] transition-all duration-300">
+                 <div className="flex items-center justify-center mb-4">
+                   <Users className="text-[var(--primary-cyan)] text-3xl" />
+                 </div>
+                 <div className="text-3xl font-bold text-[var(--text-primary)] mb-2">{formatNumber(stats.subscribers)}</div>
+                 <div className="text-[var(--text-secondary)] text-sm">{locale === "pt" ? "Inscritos" : "Subscribers"}</div>
+               </div>
+               <div className="cyber-card rounded-xl p-6 text-center hover:shadow-[var(--glow-cyan)] transition-all duration-300">
+                 <div className="flex items-center justify-center mb-4">
+                   <Eye className="text-[var(--primary-cyan)] text-3xl" />
+                 </div>
+                 <div className="text-3xl font-bold text-[var(--text-primary)] mb-2">{formatNumber(stats.views)}</div>
+                 <div className="text-[var(--text-secondary)] text-sm">{locale === "pt" ? "Total de Visualizações" : "Total Views"}</div>
+               </div>
+               <div className="cyber-card rounded-xl p-6 text-center hover:shadow-[var(--glow-cyan)] transition-all duration-300">
+                 <div className="flex items-center justify-center mb-4">
+                   <Video className="text-[var(--primary-cyan)] text-3xl" />
+                 </div>
+                 <div className="text-3xl font-bold text-[var(--text-primary)] mb-2">{formatNumber(stats.videos)}</div>
+                 <div className="text-[var(--text-secondary)] text-sm">{locale === "pt" ? "Total de Vídeos" : "Total Videos"}</div>
+               </div>
+            </div>
+          </div>
+        )}
+
         {/* Latest Video Player */}
         {stats?.latestVideo && (
           <div className="mb-16">
-            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
-              {stats.latestVideo.isLive 
-                ? (locale === "pt" ? "🔴 AO VIVO" : "🔴 LIVE NOW")
-                : (locale === "pt" ? "📺 Último Vídeo" : "📺 Latest Video")
-              }
-            </h2>
+            <div className="flex items-center justify-center mb-8">
+              {stats.latestVideo.isLive ? (
+                <div className="flex items-center">
+                  <div className="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
+                  <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
+                     {locale === "pt" ? "AO VIVO" : "LIVE NOW"}
+                   </h2>
+                </div>
+              ) : (
+                <div className="flex items-center">
+                   <Play className="text-[var(--primary-cyan)] text-3xl mr-3" />
+                   <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
+                     {locale === "pt" ? "Último Vídeo" : "Latest Video"}
+                   </h2>
+                 </div>
+              )}
+            </div>
             <div className="cyber-card rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all duration-300">
               <div className="relative aspect-video">
                 <iframe
@@ -186,9 +231,12 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
         {/* Popular Videos Grid */}
         {stats?.popularVideos && stats.popularVideos.length > 0 && (
           <div>
-            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
-              {locale === "pt" ? "🔥 Vídeos Mais Populares" : "🔥 Most Popular Videos"}
-            </h2>
+            <div className="flex items-center justify-center mb-8">
+               <ThumbsUp className="text-[var(--primary-cyan)] text-3xl mr-3" />
+               <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-[var(--text-primary)]">
+                 {locale === "pt" ? "Vídeos Mais Populares" : "Most Popular Videos"}
+               </h2>
+             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {stats.popularVideos.map((video, index) => (
                 <div
@@ -235,9 +283,10 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
             href={channelUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="cyber-button bg-gradient-to-r from-[#ff0000] to-[#cc0000] hover:from-[#cc0000] hover:to-[#990000] text-white px-12 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,0,0,0.6)] transform hover:scale-105"
+            className="cyber-button bg-transparent border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-12 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:-translate-y-1 font-semibold tracking-wide"
+            style={{ boxShadow: "0 0 10px rgba(0, 255, 255, 0.3)" }}
           >
-            🔔 {t.youtube.buttons.subscribe}
+            {t.youtube.buttons.subscribe}
           </a>
         </div>
       </div>

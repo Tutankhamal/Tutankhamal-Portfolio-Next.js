@@ -134,9 +134,9 @@ export const translations = {
     },
     // YouTube Section
     youtube: {
-      title: "MEU CANAL NO YOUTUBE",
-      subtitle: "Conteúdo sobre desenvolvimento e tecnologia",
-      description: "Acompanhe tutoriais, dicas e projetos no meu canal",
+      title: "TUTANKHAMAL ON YOUTUBE",
+      subtitle: "Jogos, Tecnologia e Desenvolvimento",
+      description: "No canal temos gameplays, tutoriais e projetos diversos",
       stats: {
         subscribers: "Inscritos",
         views: "Visualizações",
@@ -291,9 +291,9 @@ export const translations = {
     },
     // YouTube Section
     youtube: {
-      title: "MY YOUTUBE CHANNEL",
-      subtitle: "Development and technology content",
-      description: "Follow tutorials, tips and projects on my channel",
+      title: "TUTANKHAMAL ON YOUTUBE",
+      subtitle: "Games, Technology and Development",
+      description: "Our channel features gameplays, tutorials and diverse projects",
       stats: {
         subscribers: "Subscribers",
         views: "Views",

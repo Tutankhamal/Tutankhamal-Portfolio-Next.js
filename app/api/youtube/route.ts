@@ -1,5 +1,38 @@
 import { NextResponse } from "next/server"
 
+// Cache interface
+interface CacheEntry {
+  data: any
+  timestamp: number
+}
+
+// In-memory cache (for Vercel, this will be per-instance)
+let cache: CacheEntry | null = null
+const CACHE_DURATION = 3 * 60 * 60 * 1000 // 3 hours in milliseconds
+
+// Function to check if cache is valid
+function isCacheValid(): boolean {
+  if (!cache) return false
+  const now = Date.now()
+  return (now - cache.timestamp) < CACHE_DURATION
+}
+
+// Function to get cached data
+function getCachedData(): any | null {
+  if (isCacheValid()) {
+    return cache!.data
+  }
+  return null
+}
+
+// Function to set cache
+function setCacheData(data: any): void {
+  cache = {
+    data,
+    timestamp: Date.now()
+  }
+}
+
 interface YouTubeChannelResponse {
   items: Array<{
     statistics: {
@@ -7,6 +40,21 @@ interface YouTubeChannelResponse {
       subscriberCount: string
       videoCount: string
       commentCount?: string
+    }
+    snippet: {
+      title: string
+      description: string
+      thumbnails: {
+        high: {
+          url: string
+        }
+        default: {
+          url: string
+        }
+        medium: {
+          url: string
+        }
+      }
     }
   }>
 }
@@ -66,6 +114,12 @@ interface YouTubeAnalyticsResponse {
 
 export async function GET() {
   try {
+    // Check cache first
+    const cachedData = getCachedData()
+    if (cachedData) {
+      return NextResponse.json(cachedData)
+    }
+
     const apiKey = process.env.YOUTUBE_API_KEY
     const channelId = "UCLubOgcZY59EYBTKXNTPgbA"
 
@@ -131,12 +185,14 @@ export async function GET() {
           }
         ]
       }
+      // Cache mock data as well
+      setCacheData(mockData)
       return NextResponse.json(mockData)
     }
 
-    // Get channel statistics
+    // Get channel statistics and snippet (for thumbnail)
     const channelResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${channelId}&key=${apiKey}`
+      `https://www.googleapis.com/youtube/v3/channels?part=statistics,snippet&id=${channelId}&key=${apiKey}`
     )
 
     if (!channelResponse.ok) {
@@ -210,6 +266,8 @@ export async function GET() {
     // which needs OAuth2 authentication
     const watchTimeHours = Math.floor(parseInt(stats.viewCount) / 1000) // Rough estimation
 
+    const channelSnippet = channelData.items[0].snippet
+    
     const result = {
       subscribers: parseInt(stats.subscriberCount),
       views: parseInt(stats.viewCount),
@@ -217,10 +275,13 @@ export async function GET() {
       likes: totalLikes,
       comments: totalComments,
       watchTime: watchTimeHours,
+      channelThumbnail: channelSnippet.thumbnails.high.url,
       latestVideo: latestVideoData,
       popularVideos: popularVideos,
     }
 
+    // Cache the result before returning
+    setCacheData(result)
     return NextResponse.json(result)
   } catch (error) {
     console.error("YouTube API error:", error)
