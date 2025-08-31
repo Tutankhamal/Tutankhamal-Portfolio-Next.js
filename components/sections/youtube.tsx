@@ -8,6 +8,15 @@ interface YouTubeProps {
   locale?: Locale
 }
 
+interface YouTubeVideo {
+  id: string
+  title: string
+  thumbnail: string
+  viewCount: number
+  publishedAt: string
+  isLive?: boolean
+}
+
 interface YouTubeStats {
   subscribers: number
   views: number
@@ -15,14 +24,14 @@ interface YouTubeStats {
   likes: number
   comments: number
   watchTime: number
+  latestVideo: YouTubeVideo
+  popularVideos: YouTubeVideo[]
 }
 
 export default function YouTube({ locale = "pt" }: YouTubeProps) {
   const [stats, setStats] = useState<YouTubeStats | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [visibleStats, setVisibleStats] = useState<number[]>([])
-  const [animatedValues, setAnimatedValues] = useState<number[]>(new Array(6).fill(0))
   const sectionRef = useRef<HTMLElement>(null)
   const t = getTranslations(locale)
 
@@ -48,57 +57,7 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
     fetchYouTubeData()
   }, [])
 
-  useEffect(() => {
-    if (!stats) return
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number.parseInt(entry.target.getAttribute("data-index") || "0")
-            if (!visibleStats.includes(index)) {
-              setVisibleStats((prev) => [...prev, index])
-              const statValues = [
-                stats.subscribers,
-                stats.views,
-                stats.videos,
-                stats.likes,
-                stats.comments,
-                stats.watchTime,
-              ]
-              animateCounter(index, statValues[index])
-            }
-          }
-        })
-      },
-      { threshold: 0.5 }
-    )
-
-    const statItems = sectionRef.current?.querySelectorAll(".stat-item")
-    statItems?.forEach((item) => observer.observe(item))
-
-    return () => observer.disconnect()
-  }, [stats, visibleStats])
-
-  const animateCounter = (index: number, target: number) => {
-    const duration = 2000
-    const step = target / (duration / 16)
-    let current = 0
-
-    const timer = setInterval(() => {
-      current += step
-      if (current >= target) {
-        current = target
-        clearInterval(timer)
-      }
-
-      setAnimatedValues((prev) => {
-        const newValues = [...prev]
-        newValues[index] = Math.floor(current)
-        return newValues
-      })
-    }, 16)
-  }
 
   const formatNumber = (num: number): string => {
     if (num >= 1000000) {
@@ -110,11 +69,13 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
     return num.toString()
   }
 
-  const formatWatchTime = (hours: number): string => {
-    if (hours >= 1000) {
-      return (hours / 1000).toFixed(1) + "K"
-    }
-    return hours.toString()
+  const formatDate = (dateString: string): string => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString(locale === "pt" ? "pt-BR" : "en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric"
+    })
   }
 
   if (loading) {
@@ -140,54 +101,11 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
     )
   }
 
-  const statsData = [
-    {
-      icon: Users,
-      value: animatedValues[0],
-      label: t.youtube.stats.subscribers,
-      formatter: formatNumber,
-      color: "text-[#ff0000]",
-    },
-    {
-      icon: Eye,
-      value: animatedValues[1],
-      label: t.youtube.stats.views,
-      formatter: formatNumber,
-      color: "text-[#00ffff]",
-    },
-    {
-      icon: Video,
-      value: animatedValues[2],
-      label: t.youtube.stats.videos,
-      formatter: (num: number) => num.toString(),
-      color: "text-[#ff00ff]",
-    },
-    {
-      icon: ThumbsUp,
-      value: animatedValues[3],
-      label: t.youtube.stats.likes,
-      formatter: formatNumber,
-      color: "text-[#00ff00]",
-    },
-    {
-      icon: MessageCircle,
-      value: animatedValues[4],
-      label: t.youtube.stats.comments,
-      formatter: formatNumber,
-      color: "text-[#ffff00]",
-    },
-    {
-      icon: Clock,
-      value: animatedValues[5],
-      label: t.youtube.stats.watchTime,
-      formatter: formatWatchTime,
-      color: "text-[#ff8800]",
-    },
-  ]
+
 
   return (
     <section ref={sectionRef} className="min-h-screen bg-[#0a0a0a] py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-orbitron text-4xl lg:text-6xl font-bold text-white mb-4 glow-text">
@@ -197,15 +115,15 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
           <p className="text-[#888888] max-w-2xl mx-auto">{t.youtube.description}</p>
         </div>
 
-        {/* YouTube Channel Preview */}
-        <div className="mb-16 text-center">
-          <div className="cyber-card rounded-xl p-8 mb-8 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all duration-300">
+        {/* YouTube Channel Info */}
+        <div className="mb-12 text-center">
+          <div className="cyber-card rounded-xl p-6 mb-8 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all duration-300">
             <div className="flex items-center justify-center mb-6">
-              <div className="w-24 h-24 bg-gradient-to-br from-[#ff0000] to-[#cc0000] rounded-full flex items-center justify-center mr-6">
-                <Play className="text-white text-3xl" fill="white" />
+              <div className="w-20 h-20 bg-gradient-to-br from-[#ff0000] to-[#cc0000] rounded-full flex items-center justify-center mr-4">
+                <Play className="text-white text-2xl" fill="white" />
               </div>
               <div className="text-left">
-                <h2 className="font-orbitron text-2xl font-bold text-white mb-2">TUTANKHAMAL</h2>
+                <h2 className="font-orbitron text-xl font-bold text-white mb-1">TUTANKHAMAL</h2>
                 <p className="text-[#cccccc]">{formatNumber(stats?.subscribers || 0)} {t.youtube.stats.subscribers}</p>
               </div>
             </div>
@@ -214,7 +132,7 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
                 href={channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cyber-button bg-[#ff0000] hover:bg-[#cc0000] text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
+                className="cyber-button bg-[#ff0000] hover:bg-[#cc0000] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,0,0,0.5)]"
               >
                 {t.youtube.buttons.subscribe}
               </a>
@@ -222,7 +140,7 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
                 href={channelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cyber-button border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-8 py-3 rounded-lg font-medium transition-all duration-300"
+                className="cyber-button border-2 border-[#00ffff] text-[#00ffff] hover:bg-[#00ffff] hover:text-[#0a0a0a] px-6 py-2 rounded-lg font-medium transition-all duration-300"
               >
                 {t.youtube.buttons.visitChannel}
               </a>
@@ -230,29 +148,81 @@ export default function YouTube({ locale = "pt" }: YouTubeProps) {
           </div>
         </div>
 
-        {/* Statistics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {statsData.map((stat, index) => {
-            const IconComponent = stat.icon
-            return (
-              <div
-                key={index}
-                data-index={index}
-                className="stat-item cyber-card rounded-xl p-6 text-center hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300"
-              >
-                <div className="flex justify-center mb-4">
-                  <IconComponent className={`text-4xl ${stat.color}`} size={48} />
-                </div>
-                <div className={`font-orbitron text-3xl lg:text-4xl font-bold mb-2 glow-text ${stat.color}`}>
-                  {stat.formatter(stat.value)}
-                </div>
-                <div className="text-[#cccccc] text-sm font-medium tracking-wide">
-                  {stat.label}
+        {/* Latest Video Player */}
+        {stats?.latestVideo && (
+          <div className="mb-16">
+            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
+              {stats.latestVideo.isLive 
+                ? (locale === "pt" ? "🔴 AO VIVO" : "🔴 LIVE NOW")
+                : (locale === "pt" ? "📺 Último Vídeo" : "📺 Latest Video")
+              }
+            </h2>
+            <div className="cyber-card rounded-xl overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] transition-all duration-300">
+              <div className="relative aspect-video">
+                <iframe
+                  src={`https://www.youtube.com/embed/${stats.latestVideo.id}?autoplay=0&rel=0`}
+                  title={stats.latestVideo.title}
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-orbitron text-xl font-bold text-white mb-2">
+                  {stats.latestVideo.title}
+                </h3>
+                <div className="flex items-center justify-between text-[#cccccc] text-sm">
+                  <span className="flex items-center">
+                    <Eye className="mr-2" size={16} />
+                    {formatNumber(stats.latestVideo.viewCount)} {locale === "pt" ? "visualizações" : "views"}
+                  </span>
+                  <span>{formatDate(stats.latestVideo.publishedAt)}</span>
                 </div>
               </div>
-            )
-          })}
-        </div>
+            </div>
+          </div>
+        )}
+
+        {/* Popular Videos Grid */}
+        {stats?.popularVideos && stats.popularVideos.length > 0 && (
+          <div>
+            <h2 className="font-orbitron text-2xl lg:text-3xl font-bold text-white mb-8 text-center">
+              {locale === "pt" ? "🔥 Vídeos Mais Populares" : "🔥 Most Popular Videos"}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {stats.popularVideos.map((video, index) => (
+                <div
+                  key={video.id}
+                  className="cyber-card rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 cursor-pointer"
+                  onClick={() => window.open(`https://www.youtube.com/watch?v=${video.id}`, '_blank')}
+                >
+                  <div className="relative aspect-video">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <Play className="text-white text-4xl" fill="white" />
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-medium text-white mb-2 line-clamp-2 text-sm">
+                      {video.title}
+                    </h3>
+                    <div className="flex items-center justify-between text-[#cccccc] text-xs">
+                      <span className="flex items-center">
+                        <Eye className="mr-1" size={12} />
+                        {formatNumber(video.viewCount)}
+                      </span>
+                      <span>{formatDate(video.publishedAt)}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Call to Action */}
         <div className="text-center mt-16">
