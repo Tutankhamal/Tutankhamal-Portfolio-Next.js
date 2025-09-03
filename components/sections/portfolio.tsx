@@ -27,6 +27,16 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
     },
     {
       id: 2,
+      title: t.portfolio.projects.alanjoga.title,
+      description: t.portfolio.projects.alanjoga.description,
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio8.webp",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Canvas API", "Font Awesome", "YouTube API", "Cyberpunk Design"],
+      category: "web",
+      liveUrl: "https://alan-joga-mais.vercel.app/",
+      githubUrl: "https://github.com/Tutankhamal/AlanJogaMais",
+    },
+    {
+      id: 3,
       title: t.portfolio.projects.spocky.title,
       description: t.portfolio.projects.spocky.description,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio2-icSmdxJtQbAvUWEqSAj2eP8KvZeiGo.webp",
@@ -36,7 +46,17 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       githubUrl: "https://github.com/Tutankhamal/Spocky-Games-Website",
     },
     {
-      id: 3,
+      id: 4,
+      title: t.portfolio.projects.anacruse.title,
+      description: t.portfolio.projects.anacruse.description,
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio7.webp",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Vanilla JS", "Cyberpunk/Retrowave Style"],
+      category: "web",
+      liveUrl: "https://anacruse-com.vercel.app/",
+      githubUrl: "https://github.com/Tutankhamal/anacruse.com",
+    },
+    {
+      id: 5,
       title: t.portfolio.projects.space.title,
       description: t.portfolio.projects.space.description,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio4-dzkMjgdanynJ9ZIS7s1fMgFoggNJcr.webp",
@@ -46,7 +66,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       githubUrl: "https://github.com/Tutankhamal/the_universe_bg",
     },
     {
-      id: 4,
+      id: 6,
       title: t.portfolio.projects.cyber.title,
       description: t.portfolio.projects.cyber.description,
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio3-FC96GTLLRGCXslQBes7cD35k2iSJv4.webp",
@@ -56,7 +76,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       githubUrl: "https://github.com/Tutankhamal/Pac-Man_Dynamic_Background",
     },
     {
-      id: 5,
+      id: 7,
       title: t.portfolio.projects.egypt.title,
       description: t.portfolio.projects.egypt.description,
       image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio5.webp",
@@ -66,7 +86,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       githubUrl: "https://github.com/Tutankhamal/Pixel-Animated-Background",
     },
     {
-      id: 6,
+      id: 8,
       title: t.portfolio.projects.crt.title,
       description: t.portfolio.projects.crt.description,
       image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio6.webp",
@@ -74,16 +94,6 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       category: "2d",
       liveUrl: "https://crt-tv-interference-background.vercel.app/",
       githubUrl: "https://github.com/Tutankhamal/CRT-TV-Interference-Background",
-    },
-    {
-      id: 7,
-      title: t.portfolio.projects.anacruse.title,
-      description: t.portfolio.projects.anacruse.description,
-      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio7.webp",
-      technologies: ["HTML5", "CSS3", "JavaScript", "Vanilla JS", "Cyberpunk/Retrowave Style"],
-      category: "web",
-      liveUrl: "https://anacruse-com.vercel.app/",
-      githubUrl: "https://github.com/Tutankhamal/anacruse.com",
     },
   ]
 

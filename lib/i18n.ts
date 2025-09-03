@@ -99,6 +99,10 @@ export const translations = {
           title: "Website da Banda Anacruse", 
           description: "Site oficial de uma banda de rock com estética cyberpunk, suporte multilíngue e design responsivo moderno.",
         },
+        alanjoga: {
+          title: "Alan Joga+ - Canal de Jogos Retrô",
+          description: "Website oficial do canal Alan Joga+ especializado em jogos retrô e nostalgia gaming com design cyberpunk futurístico.",
+        },
       },
     },
     // Contact Section
@@ -254,6 +258,10 @@ export const translations = {
         anacruse: {
           title: "Anacruse Band Website",
           description: "Official website for a rock band with cyberpunk aesthetics, multilingual support, and a modern responsive design.",
+        },
+        alanjoga: {
+          title: "Alan Joga+ - Retro Gaming Channel",
+          description: "Official website for Alan Joga+ channel specialized in retro games and gaming nostalgia with futuristic cyberpunk design.",
         },
       },
     },
