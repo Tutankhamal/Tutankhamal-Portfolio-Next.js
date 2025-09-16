@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Code, Database, Globe, Smartphone, Server, Palette } from "lucide-react"
+import { Code, Bot, Cloud, ShoppingCart, Server, Palette } from "lucide-react"
 import { type Locale, getTranslations } from "@/lib/i18n"
 
 interface SkillsProps {
@@ -18,37 +18,37 @@ export default function Skills({ locale = "pt" }: SkillsProps) {
       icon: Code,
       title: t.skills.items.frontend.title,
       description: t.skills.items.frontend.description,
-      progress: 95,
+      progress: 98,
     },
     {
       icon: Server,
       title: t.skills.items.backend.title,
       description: t.skills.items.backend.description,
-      progress: 90,
+      progress: 95,
     },
     {
-      icon: Database,
-      title: t.skills.items.database.title,
-      description: t.skills.items.database.description,
+      icon: Bot,
+      title: t.skills.items.discord.title,
+      description: t.skills.items.discord.description,
+      progress: 100,
+    },
+    {
+      icon: Cloud,
+      title: t.skills.items.devops.title,
+      description: t.skills.items.devops.description,
       progress: 85,
     },
     {
-      icon: Globe,
-      title: t.skills.items.web.title,
-      description: t.skills.items.web.description,
-      progress: 98,
-    },
-    {
-      icon: Smartphone,
-      title: t.skills.items.mobile.title,
-      description: t.skills.items.mobile.description,
-      progress: 80,
+      icon: ShoppingCart,
+      title: t.skills.items.ecommerce.title,
+      description: t.skills.items.ecommerce.description,
+      progress: 95,
     },
     {
       icon: Palette,
       title: t.skills.items.design.title,
       description: t.skills.items.design.description,
-      progress: 75,
+      progress: 95,
     },
   ]
 

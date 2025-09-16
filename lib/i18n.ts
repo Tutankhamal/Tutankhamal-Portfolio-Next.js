@@ -27,28 +27,28 @@ export const translations = {
       title: "HABILIDADES",
       items: {
         frontend: {
-          title: "Desenvolvimento Frontend",
-          description: "React, Next.js, TypeScript, Tailwind CSS",
+          title: "Front-end Development",
+          description: "HTML, CSS, JS, React, Next",
         },
         backend: {
-          title: "Desenvolvimento Backend",
-          description: "Node.js, Python, APIs RESTful",
+          title: "Back-end Development",
+          description: "TypeScript, JS, PHP, Python, Node",
         },
-        database: {
-          title: "Banco de Dados",
-          description: "PostgreSQL, MongoDB, Redis",
+        discord: {
+          title: "Discord Bot Development",
+          description: "Discord API, Node.js e JavaScript",
         },
-        web: {
-          title: "Tecnologias Web",
-          description: "HTML5, CSS3, JavaScript ES6+",
+        devops: {
+          title: "DevOps & Cloud",
+          description: "AWS, Docker, Linux e automação",
         },
-        mobile: {
-          title: "Desenvolvimento Mobile",
-          description: "React Native, Flutter",
+        ecommerce: {
+          title: "Ecommerce & CMS",
+          description: "Sistemas de gerenciamento e vendas",
         },
         design: {
-          title: "UI/UX Design",
-          description: "Figma, Adobe XD, Design Systems",
+          title: "UI/UX",
+          description: "Design de interfaces e experiência do usuário",
         },
       },
     },
@@ -187,28 +187,28 @@ export const translations = {
       title: "SKILLS",
       items: {
         frontend: {
-          title: "Frontend Development",
-          description: "React, Next.js, TypeScript, Tailwind CSS",
+          title: "Front-end Development",
+          description: "HTML, CSS, JS, React, Next",
         },
         backend: {
-          title: "Backend Development",
-          description: "Node.js, Python, RESTful APIs",
+          title: "Back-end Development",
+          description: "TypeScript, JS, PHP, Python, Node",
         },
-        database: {
-          title: "Database",
-          description: "PostgreSQL, MongoDB, Redis",
+        discord: {
+          title: "Discord Bot Development",
+          description: "Discord API, Node.js and JavaScript",
         },
-        web: {
-          title: "Web Technologies",
-          description: "HTML5, CSS3, JavaScript ES6+",
+        devops: {
+          title: "DevOps & Cloud",
+          description: "AWS, Docker, Linux and automation",
         },
-        mobile: {
-          title: "Mobile Development",
-          description: "React Native, Flutter",
+        ecommerce: {
+          title: "Ecommerce & CMS",
+          description: "Management and sales systems",
         },
         design: {
-          title: "UI/UX Design",
-          description: "Figma, Adobe XD, Design Systems",
+          title: "UI/UX",
+          description: "Interface design and user experience",
         },
       },
     },
