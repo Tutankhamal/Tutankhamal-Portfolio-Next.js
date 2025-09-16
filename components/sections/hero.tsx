@@ -22,7 +22,7 @@ export default function Hero({ locale = "pt" }: HeroProps) {
   // Different technical themes with specific versions and technologies
   const technicalThemes = [
     {
-      name: "Frontend Development",
+      name: locale === "pt" ? "Desenvolvimento Frontend" : "Frontend Development",
       code: [
         "// ========================================",
         "// FRONTEND ARCHITECTURE - REACT ECOSYSTEM",
@@ -65,7 +65,7 @@ export default function Hero({ locale = "pt" }: HeroProps) {
       ]
     },
     {
-      name: "Backend Development",
+      name: locale === "pt" ? "Desenvolvimento Backend" : "Backend Development",
       code: [
         "// ========================================",
         "// BACKEND ARCHITECTURE - NODE.JS ECOSYSTEM",

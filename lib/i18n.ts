@@ -28,15 +28,15 @@ export const translations = {
       title: "HABILIDADES",
       items: {
         frontend: {
-          title: "Front-end Development",
+          title: "Desenvolvimento Front-end",
           description: "HTML, CSS, JavaScript, React, Next.js",
         },
         backend: {
-          title: "Back-end Development",
+          title: "Desenvolvimento Back-end",
           description: "Node.js, PHP, Python, TypeScript, APIs",
         },
         discord: {
-          title: "Discord Bot Development",
+          title: "Desenvolvimento de Discord Bot",
           description: "Discord API, Node.js e JavaScript",
         },
         devops: {
