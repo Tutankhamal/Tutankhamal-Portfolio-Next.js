@@ -8,6 +8,7 @@ export const translations = {
     nav: {
       home: "Início",
       skills: "Habilidades",
+      technologies: "Tecnologias",
       portfolio: "Portfólio",
       contact: "Contato",
       youtube: "YouTube",
@@ -28,11 +29,11 @@ export const translations = {
       items: {
         frontend: {
           title: "Front-end Development",
-          description: "HTML, CSS, JS, React, Next",
+          description: "HTML, CSS, JavaScript, React, Next.js",
         },
         backend: {
           title: "Back-end Development",
-          description: "TypeScript, JS, PHP, Python, Node",
+          description: "Node.js, PHP, Python, TypeScript, APIs",
         },
         discord: {
           title: "Discord Bot Development",
@@ -51,6 +52,11 @@ export const translations = {
           description: "Design de interfaces e experiência do usuário",
         },
       },
+    },
+    // Technologies Section
+    technologies: {
+      title: "TECNOLOGIAS",
+      subtitle: "Ferramentas e linguagens que domino",
     },
     // Stats Section
     stats: {
@@ -168,6 +174,7 @@ export const translations = {
     nav: {
       home: "Home",
       skills: "Skills",
+      technologies: "Technologies",
       portfolio: "Portfolio",
       contact: "Contact",
       youtube: "YouTube",
@@ -188,11 +195,11 @@ export const translations = {
       items: {
         frontend: {
           title: "Front-end Development",
-          description: "HTML, CSS, JS, React, Next",
+          description: "HTML, CSS, JavaScript, React, Next.js",
         },
         backend: {
           title: "Back-end Development",
-          description: "TypeScript, JS, PHP, Python, Node",
+          description: "Node.js, PHP, Python, TypeScript, APIs",
         },
         discord: {
           title: "Discord Bot Development",
@@ -211,6 +218,11 @@ export const translations = {
           description: "Interface design and user experience",
         },
       },
+    },
+    // Technologies Section
+    technologies: {
+      title: "TECHNOLOGIES",
+      subtitle: "Tools and languages I master",
     },
     // Stats Section
     stats: {

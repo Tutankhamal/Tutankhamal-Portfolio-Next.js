@@ -856,3 +856,51 @@ body {
     background: linear-gradient(45deg, var(--primary-cyan), var(--primary-magenta), var(--primary-yellow), var(--primary-cyan));
   }
 }
+
+/* Technologies Carousel Animations */
+.hover\:shadow-cyan {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.1);
+}
+
+.hover\:shadow-purple {
+  box-shadow: 0 0 20px rgba(128, 0, 255, 0.3), 0 0 40px rgba(128, 0, 255, 0.1);
+}
+
+.hover\:shadow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 128, 0.3), 0 0 40px rgba(0, 255, 128, 0.1);
+}
+
+.hover\:shadow-orange {
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.3), 0 0 40px rgba(255, 165, 0, 0.1);
+}
+
+.hover\:shadow-blue {
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.3), 0 0 40px rgba(0, 128, 255, 0.1);
+}
+
+.hover\:shadow-pink {
+  box-shadow: 0 0 20px rgba(255, 20, 147, 0.3), 0 0 40px rgba(255, 20, 147, 0.1);
+}
+
+.hover\:shadow-yellow {
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.3), 0 0 40px rgba(255, 255, 0, 0.1);
+}
+
+.hover\:shadow-red {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), 0 0 40px rgba(255, 0, 0, 0.1);
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}

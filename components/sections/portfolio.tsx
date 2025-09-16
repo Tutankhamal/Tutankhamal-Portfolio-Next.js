@@ -19,7 +19,7 @@ export default function Portfolio({ locale = "pt" }: PortfolioProps) {
       id: 1,
       title: t.portfolio.projects.chuva.title,
       description: t.portfolio.projects.chuva.description,
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/portfolio1-jWcJZppspJaeN3hRUAcA83jwrT4mkC.webp",
+      image: "https://qyucubbl29wl9pia.public.blob.vercel-storage.com/portfolio1.webp",
       technologies: ["HTML5", "CSS3", "Framer Motion"],
       category: "web",
       liveUrl: "https://chuvagames.com",

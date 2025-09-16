@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import Analytics from '@/components/analytics'
+import '@/lib/fontawesome' // Inicializar biblioteca Font Awesome
 import './globals.css'
 
 export const metadata: Metadata = {
